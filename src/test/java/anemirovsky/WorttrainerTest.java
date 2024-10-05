@@ -99,7 +99,7 @@ public class WorttrainerTest {
     }
 
     @Test
-    @DisplayName("Test 7: Anzahl der totalen Versuche darf nicht negativ sein")
+    @DisplayName("Test 9: Anzahl der totalen Versuche darf nicht negativ sein")
     void testSetVersucheTotalNichtNegativ() {
         Worttrainer trainer = new Worttrainer();
         assertThrows(IllegalArgumentException.class, () -> trainer.setVersucheTotal(-1));
