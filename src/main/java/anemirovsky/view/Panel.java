@@ -90,9 +90,8 @@ public class Panel extends JPanel {
 
     /**
      * Diese Methode setzt das Panel zurück, aktualisiert die Labels und lädt ein neues Bild
-     * @param url die URL des neues Bildes, das angezeigt werden soll
      */
-    public void naechtesWort(String url) {
+    public void naechtesWort() {
         // Textfeld leeren
         this.eingabe.setText("");
         // Labels mit aktuellen Werten für richtige und gesamte Versuche aktualisieren
