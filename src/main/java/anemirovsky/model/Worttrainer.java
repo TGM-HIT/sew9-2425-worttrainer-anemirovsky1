@@ -1,5 +1,6 @@
 package anemirovsky.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -19,7 +20,9 @@ public class Worttrainer {
     /**
      * Konstruktor für die Worttrainer-Klasse
      */
-    public Worttrainer() {}
+    public Worttrainer() {
+        this.woerter = new ArrayList<>();
+    }
 
     /**
      * Diese Methode setzt die Liste von Wörtern für den Worttrainer
