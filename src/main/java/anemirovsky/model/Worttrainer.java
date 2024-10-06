@@ -62,6 +62,9 @@ public class Worttrainer {
      * @return das zufällig ausgewähle Wort-Bild-Paar
      */
     public WortBildPaar getZufaelligesWort() {
+        if (woerter == null || woerter.isEmpty()) {
+            throw new IllegalStateException("Wörterliste ist leer.");
+        }
         int indexZuffaellig;
         do {
             // Generiert eine Zufallszahl zwischen 0 (inklusive) und der Größe der Woerter-Liste (exklusive).
