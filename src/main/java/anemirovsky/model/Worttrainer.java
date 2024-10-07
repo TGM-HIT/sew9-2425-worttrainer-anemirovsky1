@@ -127,7 +127,4 @@ public class Worttrainer {
         this.jsonSpeicher.laden(this);
     }
 
-
-
-
 }

@@ -1,6 +1,6 @@
 {
-    "versucheRichtig": 8,
-    "versucheTotal": 10,
+    "versucheRichtig": 0,
+    "versucheTotal": 0,
     "woerter": [
         {
             "wort": "Hund",
@@ -13,6 +13,22 @@
         {
             "wort": "Hai",
             "wortURL": "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
+        },
+        {
+            "wort": "Bär",
+            "wortURL": "https://www.wwf.de/fileadmin/_processed_/6/0/csm_eurasischer-braunbaer-schweden-WW214780-c-Staffan-Widstrand-WWF_a4326043ed.jpg"
+        },
+        {
+            "wort": "Löwe",
+            "wortURL": "https://www.wwf.de/fileadmin/_processed_/b/2/csm_afrikanischer-loewe-kenia-WW225871-c-richard-barrett-wwf-uk_27b1a562b7.jpg"
+        },
+        {
+            "wort": "Tiger",
+            "wortURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/P.t.altaica_Tomak_Male.jpg/1200px-P.t.altaica_Tomak_Male.jpg"
+        },
+        {
+            "wort": "Hamster",
+            "wortURL": "https://www.tierschutz-austria.at/wp-content/uploads/2022/10/DSC_0322.jpg"
         }
     ]
 }

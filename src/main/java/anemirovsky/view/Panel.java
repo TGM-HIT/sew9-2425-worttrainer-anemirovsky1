@@ -46,27 +46,32 @@ public class Panel extends JPanel {
             Image image = imageIcon.getImage();
             image = image.getScaledInstance(250,250,Image.SCALE_SMOOTH);
             this.bild = new JLabel(new ImageIcon(image));
-            mitte.add(bild);
+            mitte.add(bild, BorderLayout.CENTER);
             this.add(mitte, BorderLayout.CENTER);
         } catch(MalformedURLException e) {
             throw new RuntimeException(e);
         }
 
         // Unteres Panel für Statusanzeigen und Buttons erstellen
-        JPanel unten = new JPanel();
-        unten.setLayout(new GridLayout(2,3));
-        this.versucheTotal = new JLabel(String.valueOf(controller.getVersucheTotal()));
+        JPanel unten = new JPanel(new GridLayout(2, 1));
+
+        // Panel für die Statusanzeigen (Richtig erratene Wörter und Gesamtanzahl)
+        JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+        statusPanel.add(new JLabel("Richtig erratene Wörter:"));
         this.versucheRichtig = new JLabel(String.valueOf(controller.getVersucheRichtig()));
+        statusPanel.add(this.versucheRichtig);
+        statusPanel.add(new JLabel("Gesamtanzahl:"));
+        this.versucheTotal = new JLabel(String.valueOf(controller.getVersucheTotal()));
+        statusPanel.add(this.versucheTotal);
+        unten.add(statusPanel);
+
+        // Panel für die Buttons (Speichern und Laden)
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
         this.speichern = new JButton("Speichern");
         this.laden = new JButton("Laden");
-
-        // Hinzufügen der Labels, Statusanzeigen und Buttons zum unteren Panel
-        unten.add(new JLabel("Richtig erratene Wörter:"));
-        unten.add(new JLabel("Gesamtanzahl:"));
-        unten.add(versucheRichtig);
-        unten.add(versucheTotal);
-        unten.add(speichern);
-        unten.add(laden);
+        buttonPanel.add(speichern);
+        buttonPanel.add(laden);
+        unten.add(buttonPanel);
         this.add(unten, BorderLayout.PAGE_END);
 
         // ActionListener  für Eingabefelder und Buttons
@@ -100,7 +105,7 @@ public class Panel extends JPanel {
         // Altes Bild entfernen
         this.remove(bild);
         JPanel mitte = new JPanel();
-        ImageIcon imageIcon;
+        ImageIcon imageIcon = null;
         try {
             // Neue URL für das Bild abrufen
             imageIcon = new ImageIcon(new URL(controller.getAktuelleUrl()));
@@ -108,12 +113,18 @@ public class Panel extends JPanel {
             throw new RuntimeException(e);
         }
         Image image = imageIcon.getImage();
-        image = image.getScaledInstance(250,250,Image.SCALE_SMOOTH);
+        image = image.getScaledInstance(400,300,Image.SCALE_SMOOTH);
         this.bild = new JLabel(new ImageIcon(image));
         mitte.add(bild);
         this.add(mitte, BorderLayout.CENTER);
-        // Layout neu berechnen und die Ansicht aktualisieren
-        this.revalidate(); // Layout neu berechnen
-        this.repaint();    // Ansicht aktualisieren
+    }
+
+    /**
+     * Diese Methode aktualisiert das Eingabefeld und die Anzeige der richtigen und gesamten Versuche
+     */
+    public void weiter() {
+        this.eingabe.setText("");
+        this.versucheRichtig.setText(String.valueOf(this.controller.getVersucheRichtig()));
+        this.versucheTotal.setText(String.valueOf(this.controller.getVersucheTotal()));
     }
 }

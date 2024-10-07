@@ -22,6 +22,7 @@ public class Controller implements ActionListener {
      */
     public Controller() {
         this.worttrainer = new Worttrainer();
+        this.worttrainer.laden();
         this.panel = new Panel(this);
         this.frame = new Frame(panel);
     }
@@ -56,7 +57,26 @@ public class Controller implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+        String actionCommand = actionEvent.getActionCommand();
+        switch(actionCommand) {
+            case "Eingabe":
+                // Überprüfen, ob das eingegebene Wort korrekt ist
+                if (this.worttrainer.checkWort(panel.getEingabe())) {
+                    // Panel zurücksetzen, Labels aktualisieren und Bild laden
+                    this.panel.naechtesWort();
+                }
+                // Unabhängig vom Ergebnis, die Ansicht aktualisieren
+                this.panel.weiter();
+                break;
+            case "Speichern":
+                this.worttrainer.speichern();
+                break;
+            case "Laden":
+                this.worttrainer.laden();
+                // Panel zurücksetzen, Labels aktualisieren und Bild laden
+                this.panel.naechtesWort();
+                break;
+        }
     }
 
     /**
