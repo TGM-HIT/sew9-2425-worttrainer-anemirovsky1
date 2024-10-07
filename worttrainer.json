@@ -1,0 +1,18 @@
+{
+    "versucheRichtig": 8,
+    "versucheTotal": 10,
+    "woerter": [
+        {
+            "wort": "Hund",
+            "wortURL": "https://www.zooroyal.at/magazin/wp-content/uploads/2019/10/hund-im-herbst.jpg"
+        },
+        {
+            "wort": "Katze",
+            "wortURL": "https://www.tierschutzbund.de/fileadmin/_processed_/d/1/csm_Katzen_auf_Seite_liegend_getigert_c_dtschb-sabine-muench.de_2e70d12553.jpg"
+        },
+        {
+            "wort": "Hai",
+            "wortURL": "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
+        }
+    ]
+}

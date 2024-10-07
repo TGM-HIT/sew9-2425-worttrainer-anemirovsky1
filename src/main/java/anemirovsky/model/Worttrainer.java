@@ -1,6 +1,5 @@
 package anemirovsky.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -16,12 +15,14 @@ public class Worttrainer {
     private int aktuellesWortIndex;
     private int versucheTotal;
     private int versucheRichtig;
+    private JSONSpeicher jsonSpeicher = new JSONSpeicher();
 
     /**
      * Konstruktor für die Worttrainer-Klasse
      */
     public Worttrainer() {
-        this.woerter = new ArrayList<>();
+        // Der Konstruktor lädt den gespeicherten Zustand des Worttrainers beim Erstellen des Objekts.
+        this.jsonSpeicher.laden(this);
     }
 
     /**
@@ -110,6 +111,20 @@ public class Worttrainer {
      */
     public int getVersucheRichtig() {
         return this.versucheRichtig;
+    }
+
+    /**
+     * Diese Methode speichert den aktuellen Zustand des Worttrainers in einer JSON-Datei
+     */
+    public void speichern() {
+        this.jsonSpeicher.speichern(this);
+    }
+
+    /**
+     * Diese Methode lädt den gespeicherten Zustand des Worttrainers in einer JSON-Datei
+     */
+    public void laden() {
+        this.jsonSpeicher.laden(this);
     }
 
 
