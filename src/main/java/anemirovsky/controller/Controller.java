@@ -7,6 +7,7 @@ import anemirovsky.view.Panel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
 
 /**
  * Controller-Klasse
@@ -82,6 +83,11 @@ public class Controller implements ActionListener {
                 // Panel zurücksetzen, Labels aktualisieren und Bild laden
                 this.panel.naechtesWort();
                 break;
+            case "Reset":
+                this.worttrainer.setVersucheTotal(0);
+                this.worttrainer.setVersucheRichtig(0);
+                this.panel.naechtesWort();
+
         }
     }
 
