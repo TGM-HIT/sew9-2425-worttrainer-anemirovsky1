@@ -17,7 +17,7 @@ public class Panel extends JPanel {
     private Controller controller;
     private JLabel versucheRichtig, versucheTotal, bild;
     private JTextField eingabe;
-    private JButton speichern, laden;
+    private JButton speichern, laden, reset;
 
     /**
      * Konstruktor für die Panel-Klasse
@@ -69,9 +69,11 @@ public class Panel extends JPanel {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
         this.speichern = new JButton("Speichern");
         this.laden = new JButton("Laden");
+        this.reset = new JButton("Versuche zurücksetzen");
         buttonPanel.add(speichern);
         buttonPanel.add(laden);
         unten.add(buttonPanel);
+        unten.add(reset);
         this.add(unten, BorderLayout.PAGE_END);
 
         // ActionListener  für Eingabefelder und Buttons
@@ -83,6 +85,9 @@ public class Panel extends JPanel {
 
         this.laden.addActionListener(this.controller);
         this.laden.setActionCommand("Laden");
+
+        this.reset.addActionListener(this.controller);
+        this.reset.setActionCommand("Reset");
     }
 
     /**
