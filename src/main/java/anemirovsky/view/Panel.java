@@ -57,7 +57,7 @@ public class Panel extends JPanel {
 
         // Panel für die Statusanzeigen (Richtig erratene Wörter und Gesamtanzahl)
         JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
-        statusPanel.add(new JLabel("Richtig erratene Wörter:"));
+        statusPanel.add(new JLabel("Richtig erratene Woerter:"));
         this.versucheRichtig = new JLabel(String.valueOf(controller.getVersucheRichtig()));
         statusPanel.add(this.versucheRichtig);
         statusPanel.add(new JLabel("Gesamtanzahl:"));

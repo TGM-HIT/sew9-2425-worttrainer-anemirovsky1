@@ -4,6 +4,7 @@ import anemirovsky.model.Worttrainer;
 import anemirovsky.view.Frame;
 import anemirovsky.view.Panel;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -67,6 +68,11 @@ public class Controller implements ActionListener {
                 }
                 // Unabhängig vom Ergebnis, die Ansicht aktualisieren
                 this.panel.weiter();
+                if(getVersucheTotal() == 10) {
+                    JOptionPane.showMessageDialog(frame, "Spiel zu Ende! Gesamte Versuche: " + this.worttrainer.getVersucheTotal() + " Davon Richtig: " + this.worttrainer.getVersucheRichtig(), "Info", JOptionPane.INFORMATION_MESSAGE);
+                    this.frame.setVisible(false);
+                    this.frame.dispose();
+                }
                 break;
             case "Speichern":
                 this.worttrainer.speichern();
